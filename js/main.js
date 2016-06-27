@@ -102,5 +102,6 @@ function update () {
   console.log("Page update requested");
   document.getElementById("repo_container").innerHTML = "";
   sendRequest();
+  $('.ui.sidebar').sidebar('hide');
   //alert("Updating");
 }
