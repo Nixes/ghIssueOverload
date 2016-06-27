@@ -13,7 +13,9 @@ function addLabels(labels) {
     if (labels[i].name.toLowerCase() == "bug") {
       string += '<div class="ui tiny red horizontal label">'+labels[i].name+'</div>';
     } else if (labels[i].name.toLowerCase() == "enhancement") {
-      string += '<div class="ui tiny green horizontal label">'+labels[i].name+'</div>';
+      string += '<div class="ui tiny blue horizontal label">'+labels[i].name+'</div>';
+    } else if (labels[i].name.toLowerCase() == "question") {
+      string += '<div class="ui tiny pink horizontal label">'+labels[i].name+'</div>';
     } else {
       string += '<div class="ui tiny horizontal label">'+labels[i].name+'</div>';
     }
@@ -98,6 +100,7 @@ function sendRequest () {
 
 function update () {
   console.log("Page update requested");
+  document.getElementById("repo_container").innerHTML = "";
   sendRequest();
-  alert("Updating");
+  //alert("Updating");
 }
