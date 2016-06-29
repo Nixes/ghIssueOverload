@@ -53,7 +53,9 @@ function checkRepo (issue) {
     checkRepo(issue);
   } else if ( (match = containsDataset(issue.repository.name,repos) ) !== null ) {
     // found a matching repository that exists already
-    addIssue(repos[match],issue);
+    if (repos[match].lastChild.children.length / 2 < issues_to_show) {
+      addIssue(repos[match],issue);
+    }
   } else {
     // found no matching repository, creating one
     addRepo(issue.repository.name);
@@ -87,6 +89,9 @@ function sendRequest () {
 
   var auth = btoa(username + ":" + password);
   console.log("Auth Code to send: "+auth);
+
+  // get some settings from the settings form
+  issues_to_show = document.getElementById("issues_to_show").value || 5; // whatever value entered or the defualt of 5
 
   $.ajax({
     url: "https://api.github.com/issues?filter=subscribed",
