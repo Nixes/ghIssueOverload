@@ -2,3 +2,8 @@
   max-width: 600px;
   margin: 0 auto;
 }
+
+/* fixes dropdowns in semantic ui sidebar */
+.ui.sidebar {
+    overflow: visible !important;
+}

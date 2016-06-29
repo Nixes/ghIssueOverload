@@ -17,14 +17,14 @@
 
 <body>
 
-	<div class="ui top sidebar visible">
+	<div class="ui top sidebar overlay visible">
 		<div class="ui form segment">
 			<div id="container">
 				<div class="two fields">
-					<div class="three wide field">
+					<div class="four wide field">
 						<input type="text" placeholder="gh username" id="username">
 					</div>
-					<div class="three wide field">
+					<div class="four wide field">
 						<input type="password" placeholder="gh password" id="password">
 					</div>
 				</div>
@@ -44,6 +44,16 @@
 						<option value="high priority">@high</option>
 						<option value="low priority">@low</option>
 				</select>
+
+				<select class="ui selection dropdown" name="issues_to_show">
+						<option value="">issues to show</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+				</select>
 				<button onclick="update()" class="ui submit button">Get</button>
 			</div>
 		</div>
@@ -56,7 +66,6 @@
 
 	<div class="ui six column doubling stackable grid container" id="repo_container">
 	</div>
-
 </div>
 
 <script language="javascript">
@@ -67,9 +76,6 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$('.ui.sidebar').sidebar();
 });
-
-
-
 
 $('.ui.form').form({
 	on: 'blur',
