@@ -92,9 +92,10 @@ function sendRequest () {
 
   // get some settings from the settings form
   issues_to_show = document.getElementById("issues_to_show").value || 5; // whatever value entered or the defualt of 5
+  filter = document.getElementById("filter").value || "subscribed";
 
   $.ajax({
-    url: "https://api.github.com/issues?filter=subscribed",
+    url: "https://api.github.com/issues?filter="+filter,
     headers: { 'Authorization' : 'Basic ' + auth },
     // note that authentication only works with json and not jsonp in the case of the github api
     dataType : 'json',
