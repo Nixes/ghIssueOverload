@@ -30,7 +30,7 @@ function addIssue (repo,issue) {
 
   var contentEl = document.createElement("div");
   contentEl.className = "content";
-  contentEl.innerHTML = '<p>'+issue.body+'</p>';
+  contentEl.innerHTML = '<p>'+converter.makeHtml(issue.body)+'</p>';
 
   // just append issue to repository
   repo.lastChild.appendChild(titleEl);
@@ -71,6 +71,8 @@ function addTitle(username) {
 }
 
 function processResponse (response) {
+  converter = new showdown.Converter({tasklists:true});
+
   console.log(response);
 
   // TODO: find more reliable way of getting current username
@@ -84,6 +86,7 @@ function processResponse (response) {
 }
 
 function sendRequest () {
+
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
 
